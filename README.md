@@ -1,3 +1,11 @@
+# Larissas Bubbles
+
+# Capstone Project
+    - customers can signup
+    - customers can Login
+    - customers can add items to cart
+    - customers can purchase products
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
