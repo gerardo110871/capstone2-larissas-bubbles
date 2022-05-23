@@ -1,17 +1,19 @@
-import React from 'react'
-// import {useParams} from 'react-router-dom'
-import Header from '../components/Header'
-import Main from '../components/Main'
+import React from "react";
+import { useParams } from "react-router-dom";
+import Header from "../components/Header";
+import Main from "../components/Main";
+import Footer from "../components/Footer";
 
 function Home() {
-  // let {email} = useParams()
-  // console.log(email)
+  let { id } = useParams();
+  // console.log(id);
   return (
     <>
-    <Header />
-    <Main />
+      <Header />
+      <Main userId={id} />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;

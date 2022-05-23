@@ -18,7 +18,7 @@ const sequelize = new Sequelize(process.env.CONNECTION_STRING, {
 
 app.get('/items', (req, res) => {
   sequelize.query(`
-    SELECT * FROM items
+    SELECT * FROM products
   `).then(dbres => {
     console.log(dbres);
     res.status(200).send(dbres);
@@ -35,12 +35,32 @@ app.post("/signup", (req, res) => {
     })
 });
 
+app.post("/cart", (req, res) => {
+  console.log(req.body);
+  const {id, user} = req.body;
+  sequelize.query(`
+      INSERT INTO cart (item_id, user_id)
+      VALUES(${id}, ${user})
+    `).then(() => {
+      res.status(200).send()
+    })
+});
+
+app.get('/cart', (req, res) => {
+  sequelize.query(`
+    SELECT * FROM cart
+  `).then(() => {
+    res.status(200).send()
+  })
+})
+//WHERE id = ${}
+
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
   sequelize
     .query(
       `
-    SELECT first_name, last_name, email FROM signup
+    SELECT id, first_name, last_name, email FROM signup
     WHERE email = '${email}' AND password = '${password}'
     `
     )

@@ -4,7 +4,7 @@
     - customers can signup
     - customers can Login
     - customers can add items to cart
-    - customers can purchase products
+    - customers can pay for products
 
 # Getting Started with Create React App
 

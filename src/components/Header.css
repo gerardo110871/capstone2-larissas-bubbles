@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(121, 100, 204);
-    height: 150px;
+    background-color:grey;
+    height: 250px;
     color: white;
 }

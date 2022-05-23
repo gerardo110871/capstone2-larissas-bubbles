@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Items from '../components/Items'
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -20,15 +21,18 @@ function Login() {
       axios
         .post("http://localhost:3333/login", body)
         .then((res) => {
-          if (res.data[0].email) {
-            navigate(`/home/${res.data[0].email}`);
+          if (res.data[0].id) {
+            navigate(`/home/${res.data[0].id}`);
           }
-          console.log(res.data);
+          return(
+            <Items user={res.data[0].id}/>
+          )
         })
         .catch((err) => alert(err.response.data));
     } else {
       alert("please fill out the entire form");
     }
+    
   }
   return (
     <div>

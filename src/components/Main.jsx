@@ -1,18 +1,38 @@
-import React, { useEffect } from "react";
-import axios from "axios";
 import "./Main.css";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Items from "./Items";
 
-function Main() {
+function Main({userId}) {
+  const [allData, setAllData] = useState([]);
+
   useEffect(() => {
-    axios.get("http://localhost:3333/items").then((res) => {
-      res.data[0].map((item) => item);
-    });
+    getInfo();
   }, []);
 
+  function getInfo() {
+    axios
+      .get("http://localhost:3333/items")
+      .then((res) => setAllData(res.data[0]));
+  }
+
   return (
-    <div className="main">
-      <p></p>
-    </div>
+    <main>
+      {allData.map((data) => {
+        // console.log(data.id)
+        return (
+          <Items
+            key={data.id}
+            id={data.id}
+            url={data.url}
+            name={data.item}
+            description={data.description}
+            price={data.price}
+            userId={userId}
+          /> 
+        );
+      })}
+    </main>
   );
 }
 
