@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Main from "../components/Main";
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 function Home() {
   let { id } = useParams();
@@ -10,6 +11,7 @@ function Home() {
   return (
     <>
       <Header />
+      <NavBar userId={id}/>
       <Main userId={id} />
       <Footer />
     </>

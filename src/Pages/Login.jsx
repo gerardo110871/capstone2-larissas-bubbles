@@ -2,6 +2,10 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Items from '../components/Items'
+import Header from '../components/Header'
+import './SignupLogin.css'
+import { FaArrowCircleUp } from "react-icons/fa";
+
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -25,7 +29,10 @@ function Login() {
             navigate(`/home/${res.data[0].id}`);
           }
           return(
+            <>
             <Items user={res.data[0].id}/>
+            <Header user={res.data[0].id}/>
+            </>
           )
         })
         .catch((err) => alert(err.response.data));
@@ -36,10 +43,11 @@ function Login() {
   }
   return (
     <div>
-      <h1>Login</h1>
-      <form>
+      <Header />
+      <h1 className="h1">Login</h1>
+      <form className="form">
         <label>
-          Email:
+          Email:<br></br>
           <input
             type="email"
             value={email}
@@ -49,7 +57,7 @@ function Login() {
         </label>
         <br></br>
         <label>
-          Password:
+          Password:<br></br>
           <input
             type="password"
             placeholder="password"
@@ -58,7 +66,7 @@ function Login() {
           />
         </label>
         <br></br>
-        <button onClick={login}>Login</button>
+        <button onClick={login}>Login <FaArrowCircleUp /></button>
       </form>
     </div>
   );

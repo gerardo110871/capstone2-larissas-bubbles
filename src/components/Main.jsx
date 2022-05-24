@@ -6,6 +6,7 @@ import Items from "./Items";
 function Main({userId}) {
   const [allData, setAllData] = useState([]);
 
+
   useEffect(() => {
     getInfo();
   }, []);
@@ -19,11 +20,10 @@ function Main({userId}) {
   return (
     <main>
       {allData.map((data) => {
-        // console.log(data.id)
         return (
           <Items
-            key={data.id}
-            id={data.id}
+            key={data.item_id}
+            id={data.item_id}
             url={data.url}
             name={data.item}
             description={data.description}

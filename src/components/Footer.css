@@ -1,5 +1,11 @@
 .footer {
-    height: 100px;
-    width: 100%;
-    background-color: grey;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 25%;
+    background-color: transparent;
+    font-size: 50px;
+    color: teal;
+    padding-left: 20px;
 }
+

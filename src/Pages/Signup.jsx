@@ -1,6 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import {useNavigate} from 'react-router-dom'
+import Header from "../components/Header"
+import './SignupLogin.css'
+import { FaArrowCircleUp } from "react-icons/fa";
+
 
 function Form() {
   const [firstName, setFirstName] = useState("");
@@ -24,67 +28,72 @@ function Form() {
     };
 
     axios.post(`http://localhost:3333/signup`, body).then((res) => {
-      console.log(res.data)
-      if(res.data.email){
-        navigate(`/home/${res.data.email}`)
+      console.log(res.data[0][0])
+      if(res.data[0][0].id){
+        navigate(`/home/${res.data[0][0].id}`)
       }
     })
   }
 
   return (
+    <>
     <div>
-      <h1>Signup</h1>
-      <form id="form">
-        <label id="first_name">
-          First Name:
+      <Header />
+    </div>
+    <div>  
+      <h1 className="h1">Signup</h1>
+      <form id="form" className="form">
+        <label id="first_name"><br></br>
+          First Name:<br></br>
           <input
             type="text"
             value={firstName}
             name="first_name"
             onChange={(e) => setFirstName(e.target.value)}
             required
-          ></input>
+            ></input>
         </label>
         <label>
           <br></br>
-          Last Name:
+          Last Name:<br></br>
           <input
             type="text"
             value={lastName}
             name="last_name"
             onChange={(e) => setLastName(e.target.value)}
             required
-          ></input>
+            ></input>
         </label>
         <label>
           <br></br>
-          Enter Email:
+          Enter Email:<br></br>
           <input
             type="text"
             value={email}
             name="email"
-            autocomplete='off'
+            autoComplete='off'
             onChange={(e) => setEmail(e.target.value)}
             required
-          ></input>
+            ></input>
         </label>
         <br></br>
         <label>
-          Password:
+          Password:<br></br>
           <input
             type="password"
             value={password}
             name="password"
-            autocomplete="off"
+            autoComplete="off"
             onChange={(e) => setPassword(e.target.value)}
             required
-          ></input>
+            ></input>
         </label>
         <br></br>
-        <button onClick={addToDatabase}>Submit</button>
+        <button onClick={addToDatabase}>Submit <FaArrowCircleUp /></button>
       </form>
       <p></p>
     </div>
+            </>
   );
 }
 

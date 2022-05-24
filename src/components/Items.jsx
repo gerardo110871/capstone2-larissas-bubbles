@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, {useEffect} from "react";
 import './Items.css'
-import Shopping from '../images/shopping-cart.png';
+import { FaCartArrowDown, FaDollarSign } from "react-icons/fa";
+
 
 function Items({id, url, name, description, price, userId }) {
 const [itemId, setItemId] = React.useState()
@@ -28,10 +29,9 @@ function addToCart() {
       <img src={url} alt={description}></img>
       <h1>{name}</h1>
       <h5 className="description">{description}</h5>
-      <p>${price}</p><br></br>
+      <p className="price"><FaDollarSign />{price}</p><br></br>
       <div className="button">
-      <button onClick={addToCart}>Add To Cart</button>
-      <img className='shopping-icon'src={Shopping} alt={'shopping cart icon'}/>
+      <button className="button" onClick={addToCart}>Add To Cart <FaCartArrowDown /></button>
       </div>
       </div>
     </>
