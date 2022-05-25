@@ -1,9 +1,13 @@
 # Larissas Bubbles
 
+#Data Model
+<img width="1144" alt="Screen Shot 2022-05-24 at 7 56 39 PM" src="https://user-images.githubusercontent.com/81537466/170163604-b6c65685-c00c-4228-a2cd-d8bc21d40069.png">
+
 # Capstone Project
     - customers can signup
     - customers can Login
     - customers can add items to cart
+    - customers can remove items from cart
     - customers can pay for products
 
 # Getting Started with Create React App
