@@ -1,5 +1,5 @@
 import React from "react";
-import { FaCartArrowDown, FaHome, FaWpforms } from "react-icons/fa";
+import { FaCartArrowDown, FaHome } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 function NavBar({ userId }) {
@@ -11,9 +11,7 @@ function NavBar({ userId }) {
   function goHome() {
     navigate(`/home/${userId}`);
   }
-//   function signup() {
-//     navigate(`/signup`);
-//   }
+
   return (
     <div>
       <div className="cart-link">
@@ -23,9 +21,6 @@ function NavBar({ userId }) {
         <button className="cart-btn" onClick={goToCart}>
           <FaCartArrowDown />
         </button>
-        {/* <button className="cart-btn" onClick={signup}>
-          <FaWpforms />
-        </button> */}
       </div>
     </div>
   );
