@@ -11,9 +11,9 @@ function NavBar({ userId }) {
   function goHome() {
     navigate(`/home/${userId}`);
   }
-  function signup() {
-    navigate(`/signup`);
-  }
+//   function signup() {
+//     navigate(`/signup`);
+//   }
   return (
     <div>
       <div className="cart-link">
@@ -23,9 +23,9 @@ function NavBar({ userId }) {
         <button className="cart-btn" onClick={goToCart}>
           <FaCartArrowDown />
         </button>
-        <button className="cart-btn" onClick={signup}>
+        {/* <button className="cart-btn" onClick={signup}>
           <FaWpforms />
-        </button>
+        </button> */}
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import Items from '../components/Items'
 import Header from '../components/Header'
 import './SignupLogin.css'
 import { FaArrowCircleUp } from "react-icons/fa";
+import Signup from "../Pages/Signup"
 
 
 function Login() {
@@ -68,6 +69,7 @@ function Login() {
         <br></br>
         <button onClick={login}>Login <FaArrowCircleUp /></button>
       </form>
+      <Signup />
     </div>
   );
 }

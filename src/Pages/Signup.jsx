@@ -37,9 +37,6 @@ function Form() {
 
   return (
     <>
-    <div>
-      <Header />
-    </div>
     <div>  
       <h1 className="h1">Signup</h1>
       <form id="form" className="form">
