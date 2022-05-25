@@ -8,15 +8,14 @@ import AboutMe from "../components/AboutMe";
 
 function Home() {
   let { id } = useParams();
-  // console.log(id);
   return (
-    <>
+    <div>
       <Header />
-      <NavBar userId={id}/>
+      <NavBar userId={id} />
       <AboutMe />
       <Main userId={id} />
       <Footer />
-    </>
+    </div>
   );
 }
 
