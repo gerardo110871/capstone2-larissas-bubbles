@@ -31,7 +31,7 @@ function addToCart() {
       <h5 className="description">{description}</h5>
       <p className="price"><FaDollarSign />{price}</p><br></br>
       <div className="button">
-      <button className="button" onClick={addToCart}>Add To Cart <FaCartArrowDown /></button>
+      <button className="button" onClick={addToCart}>Add To  <FaCartArrowDown /></button>
       </div>
       </div>
     </>

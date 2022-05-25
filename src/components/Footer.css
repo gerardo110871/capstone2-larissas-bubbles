@@ -1,11 +1,12 @@
 .footer {
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
-    width: 25%;
-    background-color: transparent;
-    font-size: 50px;
-    color: teal;
-    padding-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  width: 25%;
+  background-color: transparent;
+  font-size: 50px;
+  color: teal;
+  padding-left: 20px;
 }
-
