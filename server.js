@@ -17,17 +17,20 @@ const sequelize = new Sequelize(process.env.CONNECTION_STRING, {
   },
 });
 
-app.post('/checkout', (req, res) => {
-  const charge = stripe.charges.create({
-    amount: req.body.amount,
-    currency: "usd",
-    source: req.body.token.id, 
-    description: 'test charge'
-  }, function(err, charge) {
-    if(err) return res.sendStatus(500)
-    res.sendStatus(200)
-  })
-})
+app.post("/checkout", (req, res) => {
+  const charge = stripe.charges.create(
+    {
+      amount: req.body.amount,
+      currency: "usd",
+      source: req.body.token.id,
+      description: "test charge",
+    },
+    function (err, charge) {
+      if (err) return res.sendStatus(500);
+      res.sendStatus(200);
+    }
+  );
+});
 
 app.get("/items", (req, res) => {
   sequelize
@@ -53,9 +56,7 @@ app.post("/signup", (req, res) => {
     `
     )
     .then((dbres) => {
-      res
-        .status(200)
-        .send(dbres)
+      res.status(200).send(dbres);
     });
 });
 
@@ -75,7 +76,7 @@ app.post("/cart", (req, res) => {
 });
 
 app.get("/cart/:id", (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   sequelize
     .query(
       `
@@ -112,11 +113,11 @@ app.post("/login", (req, res) => {
 });
 
 app.delete("/delete/:id", (req, res) => {
-  const {id} = req.params
+  const { id } = req.params;
   sequelize.query(`
   delete from cart
   where item_id = ${id}
-  `)
-})
+  `);
+});
 
 app.listen(3333, () => console.log(`running on port 3333`));

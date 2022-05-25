@@ -1,12 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Items from '../components/Items'
-import Header from '../components/Header'
-import './SignupLogin.css'
+import Items from "../components/Items";
+import Header from "../components/Header";
+import "./SignupLogin.css";
 import { FaArrowCircleUp } from "react-icons/fa";
-import Signup from "../Pages/Signup"
-
+import Signup from "../Pages/Signup";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -29,18 +28,17 @@ function Login() {
           if (res.data[0].id) {
             navigate(`/home/${res.data[0].id}`);
           }
-          return(
+          return (
             <>
-            <Items user={res.data[0].id}/>
-            <Header user={res.data[0].id}/>
+              <Items user={res.data[0].id} />
+              <Header user={res.data[0].id} />
             </>
-          )
+          );
         })
         .catch((err) => alert(err.response.data));
     } else {
       alert("please fill out the entire form");
     }
-    
   }
   return (
     <div>
@@ -67,7 +65,9 @@ function Login() {
           />
         </label>
         <br></br>
-        <button onClick={login}>Login <FaArrowCircleUp /></button>
+        <button onClick={login}>
+          Login <FaArrowCircleUp />
+        </button>
       </form>
       <Signup />
     </div>
